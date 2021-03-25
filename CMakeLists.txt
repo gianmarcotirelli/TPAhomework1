@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.10)
 
 project(structure)
 
+# Standard set to 17 to have mandatory RVO
+set(CMAKE_CXX_STANDARD 17)
+
 # LIBRARIES SECTION
 add_library(libStatic STATIC src/StaticLib.cpp) # STATIC
 # Including directories simplifies #include paths to the .h files

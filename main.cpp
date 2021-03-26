@@ -1,27 +1,27 @@
 #include <iostream>
 
-#include "funcs.h"
-#include "A.h"
-#include "libstatic/StaticLib.h"
-#include "libdynamic/DynamicLib.h"
-#include "libtemplate/Template.h"
+#include "my_fraction.h"
+#include "cxx_examples.h"
 
 using namespace std;
 
 int main() {
 
-    cout << "Funcs: " << foo(9) << endl;
 
-    A::yes(42);
+    MyFraction * frac = my_init(3,5);
 
-    StaticLib sl(90);
-    cout << "Static: " << sl.testMe(6) << endl;
+    cout << "MyFraction: " << frac->a << " / " << frac->b << endl;
 
-    DynamicLib dl("Dynamic: ");
-    cout << dl.yesItsMe(50) << endl;
+    cout << "say_hello: " << cxx_examples::say_hello("Peppo") << endl;
 
-    TemplateLib<int> tl(44);
-    cout << "Template: " << tl.getStuff() << endl;
+    try {
+        cout << "negative square_root: " << cxx_examples::square_root(-1.0) << endl;
+    } catch (exception& ex) {
+        cout << "something bad happened!" << ex.what() << endl;
+        cout << "I caught the exception, will continue" << endl;
+    };
+
+    cout << "end of the program!" << endl;
 
     return 0;
 }

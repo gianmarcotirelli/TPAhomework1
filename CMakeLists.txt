@@ -5,29 +5,14 @@ project(structure)
 # Standard set to 17 to have mandatory RVO
 set(CMAKE_CXX_STANDARD 17)
 
-# LIBRARIES SECTION
-add_library(libStatic STATIC src/StaticLib.cpp) # STATIC
-# Including directories simplifies #include paths to the .h files
-target_include_directories(libStatic PRIVATE include)
-#target_sources(libStatic PRIVATE src/<additional>.cpp) # For more sources
-
-add_library(libDynamic SHARED src/DynamicLib.cpp) # DYNAMIC
-target_include_directories(libDynamic PRIVATE include)
-#target_sources(libDynamic PRIVATE src/<additional>.cpp) # For more sources
-
-add_library(libTemplate STATIC include/libtemplate/Template.h)
-# Include directories not necessary because there are no .cpp files
-# But since the .h extension can be associates with C or C++, we need to explicit the language
-set_target_properties(libTemplate PROPERTIES LINKER_LANGUAGE CXX)
-
 
 # EXECUTABLE SECTION
 add_executable(mainEntry main.cpp)
 target_include_directories(mainEntry PRIVATE include)
 # Class A is not a library: its source file needs to be included in the target sources
-target_sources(mainEntry PRIVATE src/A.cpp)
-target_link_libraries(mainEntry libStatic libDynamic libTemplate)
-# Note how funcs.h does not need any action in CMake: it's a simple header managed by the compiler
+target_sources(mainEntry PRIVATE src/MyFraction.cpp
+                                 src/CxxExamples.cpp)
+target_link_libraries(mainEntry)
 
 # TESTS SECTION
 # Basically makes CMake read the CMakeLists.txt file contained in tests

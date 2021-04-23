@@ -15,8 +15,8 @@ La pressa è modellata tramite due cilindri collegati tra loro da aste e coppie 
 ### Vincoli
 distance < l1 + l2
 
-width << l1,l2,l3
+width << l1, l2 ,l3
 
-height < l1,l2,l3
+height < l1, l2, l3
 
 T e B allineati per massima efficienza 

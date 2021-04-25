@@ -115,6 +115,5 @@ string GTtoStringSGV (GTdevicePressa* pressa){
     double xA = xT - pressa->distance;
     double yA = yC - sqrt(pow(pressa->l1 , 2) - (xT - xC , 2));
 
-
 };
 

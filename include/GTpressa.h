@@ -1,5 +1,5 @@
-#ifndef GTPRESSA_H
-#define GTPRESSA_H
+#ifndef GTPRESSA
+#define GTPRESSA
 
 #include <iostream>
 #include <math.h>

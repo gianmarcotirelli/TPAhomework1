@@ -4,11 +4,12 @@ using namespace std;
 
 int main() {
 
-    cout << "funziona please";
-    // GTdevicePressa* dev = GTinitPressa(100.0,100.0,100.0,100.0,0.5, 30.0, 10.0);
+    GTdevicePressa* dev = GTinitPressa(100, 100, 100, 80, 0.5, 300, 10);
 
-    // string code = GTtoStringSGV(dev);
-    // cout << code;
+    string code = GTtoStringSGV(dev);
+    string name = "provaSaveLoad";
+    GTSaveToFile(code, name);
+    cout << "ecco il codice caricato: " << endl << GTLoadFromFile(name);
 
-    // return 0;
+    return 0;
 };

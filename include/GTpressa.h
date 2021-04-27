@@ -21,7 +21,7 @@ struct GTdevicePressa {
 };
 
 /**
- * Inizializza una struttura di tipo GTdevicePressa e controlla che i parametri siano compatibili attraverso il metodo CheckParam
+ * Inizializza una struttura di tipo GTdevicePressa e controlla che i parametri siano compatibili attraverso il metodo GT
  * l1 = lunghezza dell'asta che collega A con la coppia centrale
  * l2 = lunghezza dell'asta che collega T con la coppia centrale
  * l3 = lunghezza dell'asta che collega B con la coppia centrale
@@ -41,7 +41,7 @@ GTdevicePressa* GTinitPressa (double l1, double l2, double l3, double distance, 
  *Se l1 + l2 < distanza il meccanismo non si assembla e ritorna 4
  *Se tutti i parametri sono compatibili ritorna 0 e il device viene inizializzato
  */
-int CheckParam(GTdevicePressa* pressa);
+int GTCheckParam(GTdevicePressa* pressa);
 
 /**
  *Metodi per settare un signolo parametro.

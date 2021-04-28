@@ -72,7 +72,10 @@ void GTSaveToFile(string s, string name);
  */ 
 string GTLoadFromFile (string name);
 
-
+/**
+ * Cancella il device
+ */ 
+void GTDeleteDevice(GTdevicePressa* pressa);
 
 
 

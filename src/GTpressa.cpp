@@ -27,9 +27,9 @@ GTdevicePressa* GTinitPressa (double l1, double l2, double l3, double distance, 
 int GTCheckParam(GTdevicePressa* pressa){
 
     if (pressa == NULL) return 7;
-    else {
+    else{
         //tutti i valori devono esse maggiori di 0
-        if (pressa->l1 < 0 || pressa->l2 < 0 || pressa->l3 < 0 || pressa-> distance < 0 || pressa-> angle < 0 || pressa->height < 0 || pressa->width < 0) return 1;
+        if (pressa->l1 <= 0 || pressa->l2 <= 0 || pressa->l3 <= 0 || pressa-> distance <= 0 || pressa-> angle <= 0 || pressa->height <= 0 || pressa->width <= 0) return 1;
         else if (pressa->angle < 0.2 || pressa->angle > 0.8) return 2;
         else if (pressa->l3 < pressa-> l2) return 3;
         else if (pressa->l1 + pressa->l2 < pressa->distance) return 4;
@@ -40,76 +40,139 @@ int GTCheckParam(GTdevicePressa* pressa){
 }
 
 int GTSetL1(GTdevicePressa* pressa, double l1){
-    double prev = pressa->l1;
-    pressa->l1 = l1;
-    if (GTCheckParam(pressa)) return 0;
-    else 
-        pressa->l1 = prev;
-        return 1;
-        
+
+    if(pressa == NULL){
+        cout << "Device does not exist" << endl;
+        return 2;
+    }
+    else{ 
+        double prev = pressa->l1;
+        pressa->l1 = l1;
+        int exitCode = GTCheckParam(pressa);
+        if (exitCode == 0) return 0;
+        else 
+            pressa->l1 = prev;
+            cout << "Not an acceptable value" << endl;
+            return 1;
+    }
 }
 
+
 int GTSetL2(GTdevicePressa* pressa, double l2){
-    double prev = pressa->l2;
-    pressa->l2 = l2;
-    if (GTCheckParam(pressa)) return 0;
-    else 
-        pressa->l2 = prev;
-        return 1;
+
+    if(pressa == NULL){
+        cout << "Device does not exist" << endl;
+        return 2;
+    }
+    else{
+        double prev = pressa->l2;
+        pressa->l2 = l2;
+        int exitCode = GTCheckParam(pressa);
+        if (exitCode == 0) return 0;
+        else 
+            pressa->l2 = prev;
+            cout << "Not an acceptable value" << endl;
+            return 1;
+    }
         
 }
 
 int GTSetL3(GTdevicePressa* pressa, double l3){
-    double prev = pressa->l3;
-    pressa->l3 = l3;
-    if (GTCheckParam(pressa)) return 0;
-    else 
-        pressa->l3 = prev;
-        return 1;
+
+    if(pressa == NULL){
+        cout << "Device does not exist" << endl;
+        return 2;
+    }
+    else{
+        double prev = pressa->l3;
+        pressa->l3 = l3;
+        int exitCode = GTCheckParam(pressa);
+        if (exitCode == 0) return 0;
+        else 
+            pressa->l3 = prev;
+            cout << "Not an acceptable value" << endl;
+            return 1;
+    }
         
 }
 
 int GTSetDistance(GTdevicePressa* pressa, double distance){
-    double prev = pressa->distance;
-    pressa->distance = distance;
-    if (GTCheckParam(pressa)) return 0;
-    else 
-        pressa->distance = prev;
-        return 1;
+
+    if(pressa == NULL){
+        cout << "Device does not exist" << endl;
+        return 2;
+    }
+    else{
+        double prev = pressa->distance;
+        pressa->distance = distance;
+        int exitCode = GTCheckParam(pressa);
+        if (exitCode == 0) return 0;
+        else 
+            pressa->distance = prev;
+            cout << "Not an acceptable value" << endl;
+            return 1;
+    }
         
 }
 
 int GTSetAngle(GTdevicePressa* pressa, double angle){
-    double prev = pressa->angle;
-    pressa->angle = angle;
-    if (GTCheckParam(pressa)) return 0;
-    else
-        pressa->angle = prev;
-        return 1;        
+
+    if(pressa == NULL){
+        cout << "Device does not exist" << endl;
+        return 2;
+    }
+    else{
+        double prev = pressa->angle;
+        pressa->angle = angle;
+        int exitCode = GTCheckParam(pressa);
+        if (exitCode == 0) return 0;
+        else
+            pressa->angle = prev;
+            cout << "Not an acceptable value" << endl;
+            return 1;   
+    }     
 }
 
 int GTSetHeight(GTdevicePressa* pressa, double height){
-    double prev = pressa->height;
-    pressa->height = height;
-    if (GTCheckParam(pressa)) return 0;
-    else
-        pressa->height = prev;
-        return 1;       
+
+    if(pressa == NULL){
+        cout << "Device does not exist" << endl;
+        return 2;
+    }
+    else{
+        double prev = pressa->height;
+        pressa->height = height;
+        int exitCode = GTCheckParam(pressa);
+        if (exitCode == 0) return 0;
+        else
+            pressa->height = prev;
+            cout << "Not an acceptable value" << endl;
+            return 1;
+    }       
 }
 
 int GTSetWidth(GTdevicePressa* pressa, double width){
-    double prev = pressa->width;
-    pressa->width = width;
-    if (GTCheckParam(pressa)) return 0;
-    else
-        pressa->width = prev;
-        return 1;
+
+    if(pressa == NULL){
+        cout << "Device does not exist" << endl;
+        return 2;
+    }
+    else{
+        double prev = pressa->width;
+        pressa->width = width;
+        int exitCode = GTCheckParam(pressa);
+        if (exitCode == 0) return 0;
+        else
+            pressa->width = prev;
+            cout << "Not an acceptable value" << endl;
+            return 1;
+    }
 }
 
 string GTtoStringSGV (GTdevicePressa* pressa){
 
     if(pressa == NULL){
-        return "Device does not exist.";
+        return "Device does not exist. \n";
     }
     else{
         double xT = pressa->l1; //Posizione della coppia rotoidale T. Valori casuali
@@ -177,6 +240,18 @@ string GTLoadFromFile (string name){
     return s;
 
 }
+
+void GTDeleteDevice(GTdevicePressa* pressa){
+
+    if(pressa == NULL){
+        cout << "Device does not exist or it is already been deleted" << endl;
+    }
+    else{
+        delete pressa;
+        pressa = NULL;
+    }
+}
+
 
 
 

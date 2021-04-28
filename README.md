@@ -10,13 +10,17 @@ La pressa è modellata tramite due cilindri collegati tra loro da aste e coppie 
 
 -distance: distanza tra il cilindro A e la coppia a telaio (T)
 
+-angle: è l'angolo formato dall'asta l2 e la verticale. DEfinisce la configurazione iniziale del meccanismo
+
 -width, height: dimensione dei cilindri (si assumono uguali per semplicità)
 
 ### Vincoli
 distance < l1 + l2
 
-width << l1, l2 ,l3
+width << l1, l3
 
-height < l1, l2, l3
+height < l1, l3
+
+angle deve permettere l'assemblaggio del meccanismo
 
 T e B allineati per massima efficienza 

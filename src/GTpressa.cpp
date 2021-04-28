@@ -29,8 +29,12 @@ int GTCheckParam(GTdevicePressa* pressa){
     if (pressa == NULL) return 7;
     else{
         //tutti i valori devono esse maggiori di 0
-        if (pressa->l1 <= 0 || pressa->l2 <= 0 || pressa->l3 <= 0 || pressa-> distance <= 0 || pressa-> angle <= 0 || pressa->height <= 0 || pressa->width <= 0) return 1;
-        else if (pressa->angle < 0.2 || pressa->angle > 0.8) return 2;
+        double q = 4.71 - pressa->angle;
+        double aC = acos(pressa->l2 * cos(q) / pressa->l3); //angolo assoluto in C 
+        double aA = acos(((pressa->l2 * cos(q)) + pressa->distance) / pressa->l1); // angolo assoluto in A
+        
+        if (pressa->l1 <= 0 || pressa->l2 <= 0 || pressa->l3 <= 0 || pressa-> distance <= 0 || pressa-> angle < 0 || pressa->height <= 0 || pressa->width <= 0) return 1;
+        else if (q == 4.19 || q == 2.09 || aA == 1.05 || aA == 5.24 || aC == 0 || aC == 3.14) return 2;
         else if (pressa->l3 < pressa-> l2) return 3;
         else if (pressa->l1 + pressa->l2 < pressa->distance) return 4;
         else if (pressa->height < pressa->width) return 5;
@@ -175,23 +179,28 @@ string GTtoStringSGV (GTdevicePressa* pressa){
         return "Device does not exist. \n";
     }
     else{
-        double xT = pressa->l1; //Posizione della coppia rotoidale T. Valori casuali
-        double yT = pressa->l2;
+        double xT = 700; //Posizione della coppia rotoidale T. Valori casuali
+        double yT = 100; 
         double r = pressa->width/3;
         double a = pressa->angle; //per comodità
+        double q = 4.71 - a; // angolo assoluto in T (4.71 = 3/2 pi)
         string s = "";
 
         double xC = xT - pressa->l2 * sin(a);
         double yC = yT + pressa->l2 * cos(a);
 
+        double aC = acos(pressa->l2 * cos(q) / pressa->l3); //angolo assoluto in C 
         double xB = xT;
-        double yB = yC + sqrt(pow(pressa->l3 , 2) - pow(xB - xC , 2));
+        double yB = yT - (pressa->l2 * sin(q)) + (pressa->l3 * sin(aC));
 
+        double aA = acos(((pressa->l2 * cos(q)) + pressa->distance) / pressa->l1); // angolo assoluto in A
+        // cout << endl << aA << endl;
         double xA = xT - pressa->distance;
-        double yA = yC - sqrt(pow(pressa->l1 , 2) - (xT - xC , 2));
+        double yA = yT - (pressa->l2 * sin(q)) - (pressa->l1 * sin(aA));
+         //cout << - (pressa->l2 * sin(q)) - (pressa->l1 * sin(aA)) << endl << aC << endl << q << endl;
         
-        s += "<!DOCTYPE html> \n <html> \n <body> \n <svg height=\""+to_string(pressa->l1 + pressa->l2 + 100)+"\""; 
-        s += " width=\""+to_string(pressa->l2 + pressa->l3 + 100)+"\"> \n"; 
+        s += "<!DOCTYPE html> \n <html> \n <body> \n <svg height=\""+to_string(pressa->l3 + pressa->l2 + 500)+"\""; 
+        s += " width=\""+to_string(pressa->l2 + pressa->l1 + 500)+"\"> \n"; 
 
         //Coppia a telaio T e coppia centrale C
         s += "<circle cx=\""+to_string(xT)+"\" cy=\""+ to_string(yT)+"\"r=\""+ to_string(r)+"\" stroke=\"black\" stroke-width=\"3\" fill=\"red\"/> \n";  //T

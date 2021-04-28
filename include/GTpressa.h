@@ -36,7 +36,7 @@ GTdevicePressa* GTinitPressa (double l1, double l2, double l3, double distance, 
 /**
  *Controlla che i parametri permettano al meccanismo di assemblarsi correttamente.
  *Se uno dei parametri è <= 0 ritorna il codice 1
- *Se l'angolo di montaggio è minore di 0 o maggiore di 90° ritorno il codice 2
+ *Se l'angolo di montaggio corrisponde ad una delle configurazioni singolari ritorna il codice 2
  *Se la lunghezza l3 è minore di l2 rtirona il codice 3
  *Se l1 + l2 < distanza il meccanismo non si assembla e ritorna 4
  *Se tutti i parametri sono compatibili ritorna 0 e il device viene inizializzato

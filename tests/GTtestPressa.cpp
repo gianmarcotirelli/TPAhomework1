@@ -55,7 +55,7 @@ TEST_CASE("Measures do not respect parameters constrains", "[GTpressa]"){
     REQUIRE(GTCheckParam(dev) == 1);
     dev->l1 = 100;
 
-    dev->angle = 1;
+    dev->angle = 0;
     REQUIRE(GTCheckParam(dev) == 2);
     dev->angle = 0.4;
 
@@ -65,8 +65,11 @@ TEST_CASE("Measures do not respect parameters constrains", "[GTpressa]"){
 
     dev->height = 100;
     REQUIRE(GTCheckParam(dev) == 6);
+    dev->height = 30;
 
+    
     GTDeleteDevice(dev);
+
 
 }
 
@@ -79,5 +82,7 @@ TEST_CASE("Testing GTSet functions with acceptable and not acceptable parameters
     REQUIRE(GTSetL3(dev, 150) == 0);
     REQUIRE(GTSetDistance(dev, 300) == 1);
     REQUIRE(GTSetWidth(dev, 30) == 1);
+    REQUIRE(GTSetL2(dev, 50) == 0);
+    REQUIRE(GTSetAngle(dev, 0) == 1);
 
 }

@@ -14,19 +14,23 @@ l3 = lunghezza dell'asta che collega B con la coppia centrale
 
 distance = distanza tra il telaio T e il cilindro A
 
-angle = angolo per determinare il modo di assemblaggio del meccanismo
+angle = angolo compreso tra l'asta l2 e la verticale. Determina la configurazione inizale del meccanismo
 
 height = altezza dei cilindri
 
 width = larghezza dei cilindri 
 
 ### Vincoli
+
+tutti i parametri devono essere maggiori di 0
+
 distance < l1 + l2
 
 width << l1, l2 ,l3
 
 height < l1, l2, l3
 
-T e B allineati per massima efficienza 
+angle non deve produrre consifurazioni singolari
 
-l3 > l2 per avere massima corsa
+width e height devono essere proporzioanti alle aste
+

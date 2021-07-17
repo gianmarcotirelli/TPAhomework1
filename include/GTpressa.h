@@ -41,6 +41,7 @@ GTdevicePressa* GTinitPressa (double l1, double l2, double l3, double distance, 
  *Se l'angolo di montaggio corrisponde ad una delle configurazioni singolari ritorna il codice 2
  *Se la lunghezza distance è maggiore di l2 rtirona il codice 3
  *Se l1 + l2 < distanza il meccanismo non si assembla e ritorna 4
+ *Viene anche controllato che height e width siano proporzionati alle aste (codice 6,7,8)
  *Se tutti i parametri sono compatibili ritorna 0 e il device viene inizializzato
  */
 int GTCheckParam(GTdevicePressa* pressa);

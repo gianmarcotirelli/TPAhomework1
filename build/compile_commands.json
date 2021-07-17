@@ -1,0 +1,62 @@
+[
+{
+  "directory": "/home/gianmarcotirelli/Desktop/TPAhomework1/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/gianmarcotirelli/Desktop/TPAhomework1/include  -g   -std=gnu++1z -o CMakeFiles/mainEntry.dir/main.cpp.o -c /home/gianmarcotirelli/Desktop/TPAhomework1/main.cpp",
+  "file": "/home/gianmarcotirelli/Desktop/TPAhomework1/main.cpp"
+},
+{
+  "directory": "/home/gianmarcotirelli/Desktop/TPAhomework1/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/gianmarcotirelli/Desktop/TPAhomework1/include  -g   -std=gnu++1z -o CMakeFiles/mainEntry.dir/src/GTpressa.cpp.o -c /home/gianmarcotirelli/Desktop/TPAhomework1/src/GTpressa.cpp",
+  "file": "/home/gianmarcotirelli/Desktop/TPAhomework1/src/GTpressa.cpp"
+},
+{
+  "directory": "/home/gianmarcotirelli/Desktop/TPAhomework1/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/gianmarcotirelli/Desktop/TPAhomework1/include  -g   -std=gnu++1z -o CMakeFiles/mainEntry.dir/src/LBAMTTcadSVG.cpp.o -c /home/gianmarcotirelli/Desktop/TPAhomework1/src/LBAMTTcadSVG.cpp",
+  "file": "/home/gianmarcotirelli/Desktop/TPAhomework1/src/LBAMTTcadSVG.cpp"
+},
+{
+  "directory": "/home/gianmarcotirelli/Desktop/TPAhomework1/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/gianmarcotirelli/Desktop/TPAhomework1/include  -g   -std=gnu++1z -o CMakeFiles/mainEntry.dir/src/LBAMTTdevice.cpp.o -c /home/gianmarcotirelli/Desktop/TPAhomework1/src/LBAMTTdevice.cpp",
+  "file": "/home/gianmarcotirelli/Desktop/TPAhomework1/src/LBAMTTdevice.cpp"
+},
+{
+  "directory": "/home/gianmarcotirelli/Desktop/TPAhomework1/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/gianmarcotirelli/Desktop/TPAhomework1/include  -g   -std=gnu++1z -o CMakeFiles/mainEntry.dir/src/GTmachine.cpp.o -c /home/gianmarcotirelli/Desktop/TPAhomework1/src/GTmachine.cpp",
+  "file": "/home/gianmarcotirelli/Desktop/TPAhomework1/src/GTmachine.cpp"
+},
+{
+  "directory": "/home/gianmarcotirelli/Desktop/TPAhomework1/build/tests",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/gianmarcotirelli/Desktop/TPAhomework1/tests/../include  -g   -std=gnu++1z -o CMakeFiles/catch2Test.dir/catch2Main.cpp.o -c /home/gianmarcotirelli/Desktop/TPAhomework1/tests/catch2Main.cpp",
+  "file": "/home/gianmarcotirelli/Desktop/TPAhomework1/tests/catch2Main.cpp"
+},
+{
+  "directory": "/home/gianmarcotirelli/Desktop/TPAhomework1/build/tests",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/gianmarcotirelli/Desktop/TPAhomework1/tests/../include  -g   -std=gnu++1z -o CMakeFiles/catch2Test.dir/GTtestPressa.cpp.o -c /home/gianmarcotirelli/Desktop/TPAhomework1/tests/GTtestPressa.cpp",
+  "file": "/home/gianmarcotirelli/Desktop/TPAhomework1/tests/GTtestPressa.cpp"
+},
+{
+  "directory": "/home/gianmarcotirelli/Desktop/TPAhomework1/build/tests",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/gianmarcotirelli/Desktop/TPAhomework1/tests/../include  -g   -std=gnu++1z -o CMakeFiles/catch2Test.dir/GTtestMachine.cpp.o -c /home/gianmarcotirelli/Desktop/TPAhomework1/tests/GTtestMachine.cpp",
+  "file": "/home/gianmarcotirelli/Desktop/TPAhomework1/tests/GTtestMachine.cpp"
+},
+{
+  "directory": "/home/gianmarcotirelli/Desktop/TPAhomework1/build/tests",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/gianmarcotirelli/Desktop/TPAhomework1/tests/../include  -g   -std=gnu++1z -o CMakeFiles/catch2Test.dir/__/src/GTpressa.cpp.o -c /home/gianmarcotirelli/Desktop/TPAhomework1/src/GTpressa.cpp",
+  "file": "/home/gianmarcotirelli/Desktop/TPAhomework1/src/GTpressa.cpp"
+},
+{
+  "directory": "/home/gianmarcotirelli/Desktop/TPAhomework1/build/tests",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/gianmarcotirelli/Desktop/TPAhomework1/tests/../include  -g   -std=gnu++1z -o CMakeFiles/catch2Test.dir/__/src/LBAMTTcadSVG.cpp.o -c /home/gianmarcotirelli/Desktop/TPAhomework1/src/LBAMTTcadSVG.cpp",
+  "file": "/home/gianmarcotirelli/Desktop/TPAhomework1/src/LBAMTTcadSVG.cpp"
+},
+{
+  "directory": "/home/gianmarcotirelli/Desktop/TPAhomework1/build/tests",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/gianmarcotirelli/Desktop/TPAhomework1/tests/../include  -g   -std=gnu++1z -o CMakeFiles/catch2Test.dir/__/src/LBAMTTdevice.cpp.o -c /home/gianmarcotirelli/Desktop/TPAhomework1/src/LBAMTTdevice.cpp",
+  "file": "/home/gianmarcotirelli/Desktop/TPAhomework1/src/LBAMTTdevice.cpp"
+},
+{
+  "directory": "/home/gianmarcotirelli/Desktop/TPAhomework1/build/tests",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/home/gianmarcotirelli/Desktop/TPAhomework1/tests/../include  -g   -std=gnu++1z -o CMakeFiles/catch2Test.dir/__/src/GTmachine.cpp.o -c /home/gianmarcotirelli/Desktop/TPAhomework1/src/GTmachine.cpp",
+  "file": "/home/gianmarcotirelli/Desktop/TPAhomework1/src/GTmachine.cpp"
+}
+]

@@ -1,4 +1,4 @@
-#include "../include/GTpressa.h"
+#include "GTpressa.h"
 using namespace std;
 
 

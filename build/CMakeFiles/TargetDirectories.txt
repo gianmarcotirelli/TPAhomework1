@@ -1,0 +1,6 @@
+/home/gianmarcotirelli/Desktop/TPAhomework1/build/CMakeFiles/rebuild_cache.dir
+/home/gianmarcotirelli/Desktop/TPAhomework1/build/CMakeFiles/mainEntry.dir
+/home/gianmarcotirelli/Desktop/TPAhomework1/build/CMakeFiles/edit_cache.dir
+/home/gianmarcotirelli/Desktop/TPAhomework1/build/tests/CMakeFiles/rebuild_cache.dir
+/home/gianmarcotirelli/Desktop/TPAhomework1/build/tests/CMakeFiles/catch2Test.dir
+/home/gianmarcotirelli/Desktop/TPAhomework1/build/tests/CMakeFiles/edit_cache.dir

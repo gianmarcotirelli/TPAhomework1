@@ -1,0 +1,24 @@
+<!DOCTYPE html> 
+ <html> 
+ <body> 
+ <svg height="1000"width="1000"> 
+<circle cx="200.000000" cy="200.000000" r="3.333333" stroke="black" stroke-width="3" fill="red"/> 
+<circle cx="152.057446" cy="287.758256" r="3.333333" stroke="black" stroke-width="3" fill="white"/> 
+
+<rect width="10.000000" height="30.000000"transform="translate(95.000000,172.768257)" /> 
+<circle cx="100.000000" cy="187.768257" r="3.333333" stroke="black" stroke-width="3" fill="white" />" 
+<line x1="95.000000" y1="157.768257" x2="95.000000" y2="217.768257 " style="stroke:rgb(255,0,0);stroke-width:2"/> 
+
+<rect width=" 30.000000 " height=" 10.000000 "transform="translate(185.000000,370.516512)" /> 
+<circle cx="200.000000" cy="375.516512" r="3.333333" stroke="black" stroke-width="3" fill="white"/> 
+<line x1="185.000000" y1="360.516512" x2="185.000000" y2="405.516512" style="stroke:rgb(255,0,0);stroke-width:2"/> 
+<line x1="215.000000" y1="360.516512" x2="215.000000" y2="405.516512" style="stroke:rgb(255,0,0);stroke-width:2"/> 
+
+<line x1="100.000000" y1="187.768257" x2="152.057446" y2="287.758256" style="stroke:rgb(0,0,0);stroke-width:2"/> 
+<line x1="200.000000" y1="375.516512" x2="152.057446" y2="287.758256" style="stroke:rgb(0,0,0);stroke-width:2"/> 
+<line x1="200.000000" y1="200.000000" x2="152.057446" y2="287.758256" style="stroke:rgb(0,0,0);stroke-width:2"/> 
+</svg> 
+
+ </body>
+
+ </html>

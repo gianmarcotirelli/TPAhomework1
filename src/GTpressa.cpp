@@ -1,4 +1,4 @@
-#include "GTpressa.h"
+#include "../include/GTpressa.h"
 #include <stdbool.h> 
 
 using namespace std;
@@ -235,9 +235,9 @@ string GTtoStringSGV (GTdevicePressa* pressa, bool measures){
         //Aste di collegamento
         s += "<line x1=\""+to_string(xA)+"\" y1=\""+to_string(yA)+"\" x2=\""+to_string(xC)+"\" y2=\""+to_string(yC)+"\" style=\"stroke:rgb(0,0,0);stroke-width:2\"/> \n";
         s += "<line x1=\""+to_string(xB)+"\" y1=\""+to_string(yB)+"\" x2=\""+to_string(xC)+"\" y2=\""+to_string(yC)+"\" style=\"stroke:rgb(0,0,0);stroke-width:2\"/> \n";
-        s += "<line x1=\""+to_string(xT)+"\" y1=\""+to_string(yT)+"\" x2=\""+to_string(xC)+"\" y2=\""+to_string(yC)+"\" style=\"stroke:rgb(0,0,0);stroke-width:2\"/> \n";
+        s += "<line x1=\""+to_string(xT)+"\" y1=\""+to_string(yT)+"\" x2=\""+to_string(xC)+"\" y2=\""+to_string(yC)+"\" style=\"stroke:rgb(0,0,0);stroke-width:2\"/> \n </g> \n\n";
         s += "<g fill=\"none\" stroke=\"black\" stroke-width=\"4\"> \n";
-        s += "<path stroke-dasharray=\"7,7\" d=\"M"+to_string(xA)+" "+to_string(yT - pressa->width)+" l"+to_string(pressa->distance)+" 0\")\"/> \n </g> \n \n";
+        // s += "<path stroke-dasharray=\"7,7\" d=\"M"+to_string(xA)+" "+to_string(yT - pressa->width)+" l"+to_string(pressa->distance)+" 0\")\"/> \n </g> \n \n";
  
         //Nomi dei punti
         s += "<g font-size=\"20\" font-family=\"sans-serif\" fill=\"black\" stroke=\"none\" \"text-anchor=\"middle\"> \n";
@@ -260,7 +260,7 @@ string GTtoStringSGV (GTdevicePressa* pressa, bool measures){
             s += "<text x=\""+to_string(xB + 20 + pressa->height/2)+"\" y=\""+to_string(yB)+"\">width= "+w+"</text> \n"; //misura larghezza cilindro
             s += "<text x=\""+to_string(xT - (pressa->distance) + pressa->width)+"\" y=\""+to_string(yT - pressa->width - 20)+"\">distance= "+distance+"</text> \n"; // misura distance
             s += "<text x=\""+to_string(xA - pressa->height/2)+"\" y=\""+to_string(yC + 20 - (yC - yA)/2)+"\">l1= "+l1+"</text> \n\n"; //misura l1
-            s += "<text x=\""+to_string(xT - (pressa->l2 * sin(a) / 2))+"\" y=\""+to_string(yT + 30 + (pressa->l2 * cos(a) / 2))+"\">l2= "+l2+"</text>"; //misura l2
+            s += "<text x=\""+to_string(xT - (pressa->l2 * sin(pressa->angle) / 2))+"\" y=\""+to_string(yT + 30 + (pressa->l2 * cos(pressa->angle) / 2))+"\">l2= "+l2+"</text>"; //misura l2
             s += "<text x=\""+to_string(xC + (xB - xC)/2)+"\" y=\""+to_string(yB - 30 + (yC - yB)/2)+"\">l3= "+l3+"</text> </g> \n\n"; //misura l3
             s += "</svg> \n\n </body>\n\n </html> \n";
             return s;

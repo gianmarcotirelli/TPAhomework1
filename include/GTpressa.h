@@ -67,19 +67,19 @@ string GTtoStringSGV (GTdevicePressa* pressa, bool measures);
 /**
  * Serie di metodi per calcolare posizioni e angoli degli elementi del device
  */
-double GTgetxT(GTdevicePressa* pressa){ return pressa->l2 + pressa->l3;};
-double GTgetyT(GTdevicePressa* pressa){ return pressa->l1;};
-double GTgetRadius(GTdevicePressa* pressa) {return pressa->width/3;};
-double GTgetq(GTdevicePressa* pressa) {return 4.71 - pressa->angle;};
-double GTgetxC(GTdevicePressa* pressa) {return GTgetxT(pressa) - pressa->l2 * sin(pressa->angle);}
-double GTgetyC(GTdevicePressa* pressa) {return GTgetyT(pressa) + pressa->l2 * cos(pressa->angle);}
-double GTgetxB(GTdevicePressa* pressa) {return GTgetxT(pressa);}
-double GTgetyB(GTdevicePressa* pressa) {
+inline double GTgetxT(GTdevicePressa* pressa){ return pressa->l2 + pressa->l3;};
+inline double GTgetyT(GTdevicePressa* pressa){ return pressa->l1;};
+inline double GTgetRadius(GTdevicePressa* pressa) {return pressa->width/3;};
+inline double GTgetq(GTdevicePressa* pressa) {return 4.71 - pressa->angle;};
+inline double GTgetxC(GTdevicePressa* pressa) {return GTgetxT(pressa) - pressa->l2 * sin(pressa->angle);}
+inline double GTgetyC(GTdevicePressa* pressa) {return GTgetyT(pressa) + pressa->l2 * cos(pressa->angle);}
+inline double GTgetxB(GTdevicePressa* pressa) {return GTgetxT(pressa);}
+inline double GTgetyB(GTdevicePressa* pressa) {
     double aC = acos(pressa->l2 * cos(GTgetq(pressa)) / pressa->l3);
     return GTgetyT(pressa) - (pressa->l2 * sin(GTgetq(pressa))) + (pressa->l3 * sin(aC));
 }
-double GTgetxA(GTdevicePressa* pressa){ return GTgetxT(pressa) - pressa->distance;}
-double GTgetyA(GTdevicePressa* pressa) {
+inline double GTgetxA(GTdevicePressa* pressa){ return GTgetxT(pressa) - pressa->distance;}
+inline double GTgetyA(GTdevicePressa* pressa) {
     double aA = acos((+(pressa->l2 * cos(GTgetq(pressa))) + pressa->distance) / pressa->l1); // angolo assoluto in A
     return GTgetyT(pressa) + (pressa->l2 * sin(GTgetq(pressa))) + (pressa->l1 * sin(aA));
 }

@@ -20,9 +20,9 @@ struct GTMachine {
 
 };
                                //
-GTMachine* GTinitMachine(int thickness, int length,  int radius, int q1, int q2, int x, int y, double l1, double l2, double l3, double distance, double angleP);
+GTMachine* GTinitMachine(int thickness, int length,  int radius, int q1, int q2, double l1, double l2, double l3, double distance, double angleP);
 
-GTMachine* GTinitMachine(GTdevicePressa* pressa, fc_scara* scara);
+//GTMachine* GTinitMachine(GTdevicePressa* pressa, fc_scara* scara);
 
 int GTCheckParam(GTMachine* machine);
 

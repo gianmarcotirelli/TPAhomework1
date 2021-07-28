@@ -1,4 +1,6 @@
-#include "../include/GTpressa.h"
+#include "GTpressa.h"
+#include <stdbool.h> 
+
 using namespace std;
 
 
@@ -185,33 +187,30 @@ string GTtrunc(string value, int precision){
 }
 
 
-string GTtoStringSGV (GTdevicePressa* pressa, int measures){
+string GTtoStringSGV (GTdevicePressa* pressa, bool measures){
 
     if(pressa == NULL){
         return "Device does not exist. \n";
     }
     else{
         
-        double xT = 700; //Posizione della coppia rotoidale T. Valori casuali
-        double yT = 100; 
-        double r = pressa->width/3;
-        double a = pressa->angle; //per comodità
-        double q = 4.71 - a; // angolo assoluto in T (4.71 = 3/2 pi)
-        string s = "";
+        double xT = GTgetxT(pressa); //Posizione della coppia rotoidale T. Valori casuali
+        double yT = GTgetyT(pressa); 
+        double r = GTgetRadius(pressa);
+        double q = GTgetq(pressa); // angolo assoluto in T (4.71 = 3/2 pi)
 
-        double xC = xT - pressa->l2 * sin(a);
-        double yC = yT + pressa->l2 * cos(a);
+        double xC = GTgetxC(pressa);
+        double yC = GTgetyC(pressa);
 
-        double aC = acos(pressa->l2 * cos(q) / pressa->l3); //angolo assoluto in C 
-        double xB = xT;
-        double yB = yT - (pressa->l2 * sin(q)) + (pressa->l3 * sin(aC));
+        double xB = GTgetxB(pressa);
+        double yB = GTgetyB(pressa);
 
-        double aA = acos((+(pressa->l2 * cos(q)) + pressa->distance) / pressa->l1); // angolo assoluto in A
-        // cout << endl << aA << endl;
-        double xA = xT - pressa->distance;
-        double yA = yT + (pressa->l2 * sin(q)) + (pressa->l1 * sin(aA));
+        double xA = GTgetxA(pressa);
+        double yA = GTgetyA(pressa);
         //cout << aA << endl << + (pressa->l2 * sin(q)) + (pressa->l1 * sin(aA)) << endl << yA << endl;
         
+        string s = "";
+
         s += "<!DOCTYPE html> \n <html> \n <body> \n <svg height=\""+to_string(pressa->l3 + pressa->l2 + 500)+"\""; 
         s += " width=\""+to_string(pressa->l2 + pressa->l1 + 500)+"\"> \n"; 
 
@@ -247,7 +246,7 @@ string GTtoStringSGV (GTdevicePressa* pressa, int measures){
         s += "<text x=\""+to_string(xB)+"\" y=\""+to_string(yB + (pressa->width * 2))+"\">B</text> \n";
         s += "<text x=\""+to_string(xC + (pressa->width * 2))+"\" y=\""+to_string(yC)+"\">C</text> </g> \n\n";
         
-        if(measures == 1){
+        if(measures == true){
 
             string h = GTtrunc(to_string(pressa->height), 5);
             string w = GTtrunc(to_string(pressa->width), 5);

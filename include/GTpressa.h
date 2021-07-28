@@ -41,6 +41,7 @@ GTdevicePressa* GTinitPressa (double l1, double l2, double l3, double distance, 
  *Se l'angolo di montaggio corrisponde ad una delle configurazioni singolari ritorna il codice 2
  *Se la lunghezza distance è maggiore di l2 rtirona il codice 3
  *Se l1 + l2 < distanza il meccanismo non si assembla e ritorna 4
+ *Viene anche controllato che height e width siano proporzionati alle aste (codice 6,7,8)
  *Se tutti i parametri sono compatibili ritorna 0 e il device viene inizializzato
  */
 int GTCheckParam(GTdevicePressa* pressa);
@@ -61,7 +62,27 @@ int GTSetWidth(GTdevicePressa* pressa, double width);
 /**
  *Restituisce una string di codice SVG per disegnare il meccanismo. Se measures = 1 restituisce il disegno con le misure 
  */
-string GTtoStringSGV (GTdevicePressa* pressa, int measures);
+string GTtoStringSGV (GTdevicePressa* pressa, bool measures);
+
+/**
+ * Serie di metodi per calcolare posizioni e angoli degli elementi del device
+ */
+double GTgetxT(GTdevicePressa* pressa){ return pressa->l2 + pressa->l3;};
+double GTgetyT(GTdevicePressa* pressa){ return pressa->l1;};
+double GTgetRadius(GTdevicePressa* pressa) {return pressa->width/3;};
+double GTgetq(GTdevicePressa* pressa) {return 4.71 - pressa->angle;};
+double GTgetxC(GTdevicePressa* pressa) {return GTgetxT(pressa) - pressa->l2 * sin(pressa->angle);}
+double GTgetyC(GTdevicePressa* pressa) {return GTgetyT(pressa) + pressa->l2 * cos(pressa->angle);}
+double GTgetxB(GTdevicePressa* pressa) {return GTgetxT(pressa);}
+double GTgetyB(GTdevicePressa* pressa) {
+    double aC = acos(pressa->l2 * cos(GTgetq(pressa)) / pressa->l3);
+    return GTgetyT(pressa) - (pressa->l2 * sin(GTgetq(pressa))) + (pressa->l3 * sin(aC));
+}
+double GTgetxA(GTdevicePressa* pressa){ return GTgetxT(pressa) - pressa->distance;}
+double GTgetyA(GTdevicePressa* pressa) {
+    double aA = acos((+(pressa->l2 * cos(GTgetq(pressa))) + pressa->distance) / pressa->l1); // angolo assoluto in A
+    return GTgetyT(pressa) + (pressa->l2 * sin(GTgetq(pressa))) + (pressa->l1 * sin(aA));
+}
 
 /**
  * Tronca le stringe 
